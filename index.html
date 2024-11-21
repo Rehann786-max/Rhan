@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposal to Cutiee Panda</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      overflow: hidden;
+      background: linear-gradient(45deg, #ff8c00, #ff00cc);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 90%;
+      height: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      animation: fadeIn 1s ease-out;
+    }
+    .content {
+      opacity: 0;
+      animation: fadeInContent 1s ease-out forwards;
+    }
+    h1 {
+      font-size: 3rem;
+      color: white;
+      animation: fadeIn 1s ease-out;
+    }
+    p {
+      font-size: 1.5rem;
+      color: white;
+      margin-top: 20px;
+    }
+    .page {
+      display: none;
+    }
+    .active {
+      display: block;
+      animation: slideIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInContent {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      0% {
+        transform: translateY(100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #ff00cc;
+      color: white;
+      border: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff8c00;
+    }
+
+    .shayari {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #ff00cc;
+    }
+
+    .shayari span {
+      color: #ff8c00;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="page active" id="page1">
+      <h1>Hello, Cutiee Panda!</h1>
+      <p>Welcome to my little love proposal!</p>
+      <button onclick="nextPage(1)">Start</button>
+    </div>
+
+    <div class="page" id="page2">
+      <h1>You are amazing!</h1>
+      <p>I'm so glad to know someone as sweet as you.</p>
+      <div class="shayari">
+        "Dil ki har ek baat tumse kehna chahta hoon,<br>
+        <span>Tumse milke har pal khush ho jaana chahta hoon!</span>"
+      </div>
+      <button onclick="nextPage(2)">Next</button>
+    </div>
+
+    <div class="page" id="page3">
+      <h1>Every moment with you feels special</h1>
+      <p>You're the reason for so many smiles!</p>
+      <div class="shayari">
+        "Aankhon mein sapne tumhare, khwabon mein tum,<br>
+        <span>Har lamha jeena chahta hoon main bas tumhare saath hum."</span>"
+      </div>
+      <button onclick="nextPage(3)">Next</button>
+    </div>
+
+    <div class="page" id="page4">
+      <h1>Will you be mine, forever?</h1>
+      <p>I'm not good at words, but my heart speaks a lot.</p>
+      <div class="shayari">
+        "Meri duniya tumse hai roshan,<br>
+        <span>Tum ho meri zindagi ka roshan taara."</span>"
+      </div>
+      <button onclick="nextPage(4)">Next</button>
+    </div>
+
+    <div class="page" id="page5">
+      <h1>Cutiee Panda, will you say YES?</h1>
+      <p>I have loved you since the day I met you.</p>
+      <div class="shayari">
+        "Meri jaan tumse judii hai,<br>
+        <span>Tum ho meri zindagi ki har ek khushi."</span>"
+      </div>
+      <button onclick="finalPage()">Say YES!</button>
+    </div>
+
+  </div>
+
+  <script>
+    let currentPage = 0;
+    const pages = document.querySelectorAll('.page');
+
+    function nextPage(pageNum) {
+      pages[currentPage].classList.remove('active');
+      currentPage = pageNum;
+      pages[currentPage].classList.add('active');
+    }
+
+    function finalPage() {
+      alert("Yay! You said YES! 💍❤️");
+      location.reload();
+    }
+  </script>
+</body>
+</html>
